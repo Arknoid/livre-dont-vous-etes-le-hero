@@ -4,7 +4,8 @@
   ],
   "parser": "babel-eslint",
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "rules": {
     "linebreak-style": "off",
