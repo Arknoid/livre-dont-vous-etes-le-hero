@@ -1,12 +1,30 @@
+/**
+ * Import
+ */
 import React from 'react';
+
+/**
+ * Local import
+ */
 import './app.sass';
+import Page from 'components/Page';
+
+/**
+ * Code
+ */
+const book = {
+  currentPage: '',
+};
 
 function App() {
   return (
     <div className="App">
-      <p>Un livre dont vous etes le héros</p>
+      <Page book={book} />
     </div>
   );
 }
 
+/**
+ * Export
+ */
 export default App;
