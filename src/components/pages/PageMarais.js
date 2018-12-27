@@ -21,11 +21,11 @@ const PageMarais = WhitPage(({ player, book, ...props }) => (
       C'est au détour d'un marais fumant que vous rencontrez cet affreux monstre.
     </Text>
     {player.life > 50 && (
-      <Link to="marais-combat" setPage={props.setPage}>
+      <Link to="maraisCombat" setPage={props.setPage}>
         Vous êtes assez vaillant pour lui faire la peau !
       </Link>
     )}
-    <Link to="marais-fuite" setPage={props.setPage}>
+    <Link to="maraisFuite" setPage={props.setPage}>
       vous partez en courant sans vous retournez !
     </Link>
   </Fragment>

@@ -15,6 +15,12 @@ import PageMaraisFuite from 'components/pages/PageMaraisFuite';
  */
 
 class Book extends Component {
+  components = {
+    marais: PageMarais,
+    maraisCombat: PageMaraisCombat,
+    maraisFuite: PageMaraisFuite,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -36,30 +42,16 @@ class Book extends Component {
   };
 
   render() {
-    const { book, player } = this.state;
+    const { player, book } = this.state;
+    const { currentPage } = book;
+    const PageComponent = this.components[currentPage];
     return (
-      <div className="App">
-        {book.currentPage === 'marais' && (
-          <PageMarais
-            player={player}
-            book={book}
-            setPage={this.setPage}
-          />
-        )}
-        {book.currentPage === 'marais-fuite' && (
-          <PageMaraisFuite
-            player={player}
-            book={book}
-            setPage={this.setPage}
-          />
-        )}
-        {book.currentPage === 'marais-combat' && (
-          <PageMaraisCombat
-            player={player}
-            book={book}
-            setPage={this.setPage}
-          />
-        )}
+      <div className="Book">
+        <PageComponent
+          player={player}
+          book={book}
+          setPage={this.setPage}
+        />
       </div>
     );
   }

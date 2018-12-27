@@ -19,7 +19,7 @@ const PageMaraisFuite = WhitPage(({ player, book, ...props }) => (
     <Text>
       Vous fuyez de toute vos force.
     </Text>
-    <Link to="marais-fuite" setPage={props.setPage}>
+    <Link to="maraisFuite" setPage={props.setPage}>
       vous partez en courant sans vous retournez !
     </Link>
   </Fragment>
