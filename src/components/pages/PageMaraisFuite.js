@@ -10,22 +10,16 @@ import WhitPage from 'components/WhitPage';
 import Text from 'components/Text';
 import Link from 'components/Link';
 
-import './page.sass';
-
-
 /**
  * Component
  */
 
-const PageMarais = WhitPage(({ player, book }) => (
+const PageMaraisFuite = WhitPage(({ player, book, ...props }) => (
   <Fragment>
     <Text>
-      C'est au détour d'un marais fumant que vous rencontrez cet affreux monstre.
+      Vous fuyez de toute vos force.
     </Text>
-    <Link to="marais-combat">
-      Vous êtes assez vaillant pour lui faire la peau !
-    </Link>
-    <Link to="marais-fuite">
+    <Link to="marais-fuite" setPage={props.setPage}>
       vous partez en courant sans vous retournez !
     </Link>
   </Fragment>
@@ -34,9 +28,8 @@ const PageMarais = WhitPage(({ player, book }) => (
   href: 'marais',
 });
 
-
 /**
  * Export
  */
 
-export default PageMarais;
+export default PageMaraisFuite;

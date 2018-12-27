@@ -8,6 +8,6 @@ import ReactDOM from 'react-dom';
  * Local import
  */
 import './styles/index.sass';
-import App from './components/App';
+import Book from './components/Book';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Book />, document.getElementById('root'));

@@ -11,20 +11,19 @@ import './whitPage.sass';
 /**
  * Component
  */
-const WhitPage = (WrappedComponent, setting) => {
+const WhitPage = (PageComponent, setting) => (
+
   function Page(props) {
-    console.log(props);
     return (
       <div>
         <h1>{setting.title}</h1>
-        <WrappedComponent
+        <PageComponent
           {...props}
         />
       </div>
     );
   }
-  return Page;
-};
+);
 
 
 /**
