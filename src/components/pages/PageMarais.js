@@ -6,32 +6,31 @@ import React, { Fragment } from 'react';
 /**
  * Local import
  */
+
 import WhitPage from 'components/WhitPage';
 import Text from 'components/Text';
 import Link from 'components/Link';
-
 
 /**
  * Component
  */
 
-const PageMarais = WhitPage(({ player, book, ...props }) => (
+const PageMarais = WhitPage(({ player, setCurrentPage, setPlayerEnergy }) => (
   <Fragment>
     <Text>
       C'est au détour d'un marais fumant que vous rencontrez cet affreux monstre.
     </Text>
-    {player.life > 50 && (
-      <Link to="maraisCombat" setPage={props.setPage}>
+    <Link to="maraisFuite" setPage={setCurrentPage} action={setPlayerEnergy} actionValue={-10}>
+      Vous partez en courant sans vous retournez !
+    </Link>
+    {player.health > 50 && (
+      <Link to="maraisCombat" setPage={setCurrentPage}>
         Vous êtes assez vaillant pour lui faire la peau !
       </Link>
     )}
-    <Link to="maraisFuite" setPage={props.setPage}>
-      vous partez en courant sans vous retournez !
-    </Link>
   </Fragment>
 ), {
-  title: 'Le marais',
-  href: 'marais',
+  chapter: 'Le marais maudit',
 });
 
 

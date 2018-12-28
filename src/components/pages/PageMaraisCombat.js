@@ -13,15 +13,14 @@ import Text from 'components/Text';
  * Component
  */
 
-const PageMaraisCombat = WhitPage(({ player, book, ...props }) => (
+const PageMaraisCombat = WhitPage(() => (
   <Fragment>
     <Text>
       Vous affrontez ce terrible monstre...
     </Text>
   </Fragment>
 ), {
-  title: 'Le marais',
-  href: 'marais',
+  chapter: 'Le marais maudit',
 });
 
 /**
