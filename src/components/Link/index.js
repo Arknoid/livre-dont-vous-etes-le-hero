@@ -21,10 +21,12 @@ const Link = (
   },
 ) => {
   const handleClick = () => {
-    if (action !== undefined && actionValue !== undefined) {
-      action(actionValue);
+    if (action !== undefined) {
+      action(actionValue !== undefined ? actionValue : '');
     }
-    setPage(to);
+    if (setPage !== undefined) {
+      setPage(to);
+    }
   };
   return (
     <button type="button" {...rest} onClick={handleClick} />
@@ -32,13 +34,14 @@ const Link = (
 };
 
 Link.propType = {
-  setPage: PropType.func.isRequired,
-  to: PropType.string.isRequired,
+  setPage: PropType.func,
+  to: PropType.string,
   action: PropType.func,
-  actionValue: PropType.number,
 };
 
 Link.defaultProps = {
+  to: undefined,
+  setPage: undefined,
   action: undefined,
   actionValue: undefined,
 };

@@ -25,6 +25,10 @@ class Book extends Component {
         health: 100,
         energy: 100,
         ration: 10,
+        inCombat: false,
+        damage: 6, // rollDice
+        armor: 3, // rollDice 0 to value
+        combatSkill: 6,
       },
       book: {
         currentPage: 'marais',
@@ -37,6 +41,15 @@ class Book extends Component {
     };
   }
 
+  setInCombat = (bool) => {
+    this.setState(state => ({
+      player: {
+        ...state.player,
+        inCombat: bool,
+      },
+    }));
+  };
+
   setCurrentPage = (page) => {
     this.setState({
       book: {
@@ -45,11 +58,23 @@ class Book extends Component {
     });
   };
 
-  setPlayerEnergy = (number) => {
+  addPlayerEnergy = (number) => {
     this.setState(state => ({
       player: {
         ...state.player,
         energy: state.player.energy + number,
+      },
+    }));
+  };
+
+  resetGame = () => {
+    this.setState(state => ({
+      player: {
+        ...state.player,
+        health: 100,
+      },
+      book: {
+        currentPage: 'marais',
       },
     }));
   };
@@ -63,7 +88,7 @@ class Book extends Component {
     }));
   };
 
-  setPlayerHealth = (number) => {
+  addPlayerHealth = (number) => {
     this.setState(state => ({
       player: {
         ...state.player,
@@ -91,9 +116,11 @@ class Book extends Component {
           player={player}
           book={book}
           setCurrentPage={this.setCurrentPage}
-          setPlayerHealth={this.setPlayerHealth}
-          setPlayerEnergy={this.setPlayerEnergy}
+          addPlayerHealth={this.addPlayerHealth}
+          addPlayerEnergy={this.addPlayerEnergy}
           consumeRation={this.consumeRation}
+          setInCombat={this.setInCombat}
+          resetGame={this.resetGame}
         />
         <PlayerStats
           {...player}

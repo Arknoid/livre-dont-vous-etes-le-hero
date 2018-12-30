@@ -7,20 +7,20 @@ import React, { Fragment } from 'react';
  * Local import
  */
 
-import WhitPage from 'components/WhitPage';
 import Text from 'components/Text';
 import Link from 'components/Link';
+import withPage from './withPage';
 
 /**
  * Component
  */
 
-const PageMarais = WhitPage(({ player, setCurrentPage, setPlayerEnergy }) => (
+const PageMarais = withPage(({ player, setCurrentPage, addPlayerEnergy }) => (
   <Fragment>
     <Text>
       C'est au détour d'un marais fumant que vous rencontrez cet affreux monstre.
     </Text>
-    <Link to="maraisFuite" setPage={setCurrentPage} action={setPlayerEnergy} actionValue={-10}>
+    <Link to="maraisFuite" setPage={setCurrentPage} action={addPlayerEnergy} actionValue={-10}>
       Vous partez en courant sans vous retournez !
     </Link>
     {player.health > 50 && (

@@ -9,19 +9,19 @@ import random from 'random';
  * Local import
  */
 
-import WhitPage from 'components/WhitPage';
 import Text from 'components/Text';
 import Link from 'components/Link';
+import withPage from './withPage';
 
 /**
  * Component
  */
 
-const PageMaraisFuite = WhitPage(({ player, setCurrentPage, setPlayerEnergy }) => {
-  const randomNumber = random.int(1, 6);
+const PageMaraisFuite = withPage(({ player, setCurrentPage, addPlayerEnergy }) => {
+  const diceRoll = random.int(1, 6);
   return (
     <Fragment>
-      {(randomNumber >= 5) ? (
+      {(diceRoll >= 5) ? (
         <Fragment>
           <Text>
             Vous vous entravez à une racine et vous roulez brutalement à terre.
@@ -38,7 +38,7 @@ const PageMaraisFuite = WhitPage(({ player, setCurrentPage, setPlayerEnergy }) =
             Vous fuyez de toutes vos forces.
           </Text>
           {player.energy > 10 && (
-            <Link to="maraisFuite" setPage={setCurrentPage} action={setPlayerEnergy} actionValue={-10}>
+            <Link to="maraisFuite" setPage={setCurrentPage} action={addPlayerEnergy} actionValue={-10}>
               Continuer de courir sans relâche (-10 en énergie)
             </Link>
           )}

@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
     "eslint-loader": "^2.1.1",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
     "random": "^2.0.13",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.2"
+    "react-scripts": "2.1.2",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "clean": "rm -rf dist",

@@ -5,17 +5,17 @@ import React, { Fragment } from 'react';
 /**
  * Local import
  */
-import './whitPage.sass';
+import './page.sass';
 import Text from 'components/Text';
 import Link from 'components/Link';
 
 /**
  * Component
  */
-const WhitPage = (PageComponent, setting) => (
+const withPage = (PageComponent, setting) => (
 
   function Page(props) {
-    const { player, setCurrentPage, consumeRation } = props;
+    const { player, consumeRation, resetGame } = props;
     return (
       <section>
         <h1>{setting.chapter}</h1>
@@ -28,9 +28,9 @@ const WhitPage = (PageComponent, setting) => (
             {player.health <= 0 && (
               <Fragment>
                 <Text>
-                  Vous succombez à vos blessures d'en d'horribles souffrance...
+                  Vous succombez à vos blessures dans d'horribles souffrance...
                 </Text>
-                <Link to="marais" setPage={setCurrentPage}>
+                <Link action={resetGame}>
                   Recommencer
                 </Link>
               </Fragment>
@@ -40,9 +40,9 @@ const WhitPage = (PageComponent, setting) => (
                 <Text>
                 Vous êtes épuiser et affamer, vous devez consommer une ration.
                 </Text>
-                <button type="button" onClick={consumeRation}>
+                <Link action={consumeRation}>
                   Manger et se reposer.
-                </button>
+                </Link>
               </Fragment>
             )}
           </Fragment>
@@ -58,4 +58,4 @@ const WhitPage = (PageComponent, setting) => (
 /**
  * Export
  */
-export default WhitPage;
+export default withPage;
