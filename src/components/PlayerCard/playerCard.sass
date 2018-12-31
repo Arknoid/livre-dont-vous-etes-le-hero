@@ -1,4 +1,5 @@
 .playerCard
+  font-family: 'Charm', cursive
   width: 10rem
   height: 10rem
   position: relative
@@ -10,7 +11,8 @@
   margin: 0 auto
   font-weight: bold
   color: white
-
+  &:hover
+    cursor: pointer
   &-name,
   &-health,
   &-energy,
@@ -37,7 +39,7 @@
     background-size: 100% 100%
     border-radius: 50px
     bottom: -1.6rem
-    right: -2rem
+    right: -1.8rem
     span
       padding-top: 0.5rem
       margin: auto
@@ -82,7 +84,7 @@
     top: -1.4rem
     width: 2.5rem
     height: 2.5rem
-    font-size: 1.2rem
+    font-size: 1.6rem
     background: url("/assets/interface/energy.png")
     background-size: 100% 100%
     span

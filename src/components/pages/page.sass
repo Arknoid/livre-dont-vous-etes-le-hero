@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Charm:400,700')
 
 .page
   display: flex
   height: 100%
   width: 100%
-  font-family: 'Charm', cursive
   &-chapter
+    font-family: 'UnifrakturMaguntia', cursive
     width: 50%
     box-shadow: 0 0 15px burlywood
     display: flex
@@ -13,10 +12,13 @@
     justify-content: space-between
     padding-bottom: 2rem
     &-title
-      font-weight: 700
+      &:first-letter
+        font-family: 'UnifrakturCook', cursive
+        font-size: 4rem
       text-align: center
       margin-top: 5rem
       font-size: 3rem
+      text-shadow: 0 0 25px peru
     &-picture
       margin: 0 5rem
       height: 50%
