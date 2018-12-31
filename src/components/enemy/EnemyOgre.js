@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 
-import EnemyPicture from 'components/EnemyPicture';
+import EnemyCard from 'components/EnemyCard';
 import withEnemy from './withEnemy';
 
 /**
@@ -15,8 +15,8 @@ import withEnemy from './withEnemy';
  */
 
 const EnemyOgre = withEnemy(props => (
-  <EnemyPicture
-    picture="ogre.png"
+  <EnemyCard
+    picture="ogre.jpeg"
     {...props}
   />
 ),

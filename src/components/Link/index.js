@@ -29,7 +29,12 @@ const Link = (
     }
   };
   return (
-    <button type="button" {...rest} onClick={handleClick} />
+    <button
+      className="link"
+      type="button"
+      {...rest}
+      onClick={handleClick}
+    />
   );
 };
 

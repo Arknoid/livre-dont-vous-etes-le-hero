@@ -11,7 +11,10 @@ import './text.sass';
  * Component
  */
 const Text = props => (
-  <p {...props} />
+  <p
+    className="text"
+    {...props}
+  />
 );
 
 /*

@@ -4,16 +4,15 @@
 
 import React from 'react';
 import PropType from 'prop-types';
-
 /**
  * Local import
  */
-import './enemyPicture.sass';
+import './enemyCard.sass';
 
 /**
  * Component
  */
-const EnemyPicture = (
+const EnemyCard = (
   {
     picture,
     name,
@@ -25,18 +24,17 @@ const EnemyPicture = (
 ) => {
   const enemyImg = `./assets/enemy/${picture}`;
   return (
-    <article>
-      <img src={enemyImg} alt={name} />
-      <div>{name}</div>
-      <div>Santé : {health}</div>
-      <div>Dégâts : {damage}</div>
-      <div>Habilité au combat : {combatSkill}</div>
-      <div>Armure : {armor}</div>
+    <article className="enemyCard" style={{ backgroundImage: `url(${enemyImg})` }}>
+      <div className="enemyCard-name">{name}</div>
+      <div className="enemyCard-health"><span>{health}</span></div>
+      <div className="enemyCard-damage"><span>1D{damage}</span></div>
+      <div className="enemyCard-combat"><span>{combatSkill}</span></div>
+      <div className="enemyCard-armor"><span>1D{armor}</span></div>
     </article>
   );
 };
 
-EnemyPicture.propTypes = {
+EnemyCard.propTypes = {
   picture: PropType.string.isRequired,
   name: PropType.string.isRequired,
   health: PropType.number.isRequired,
@@ -48,4 +46,4 @@ EnemyPicture.propTypes = {
 /*
  * Export
  */
-export default EnemyPicture;
+export default EnemyCard;

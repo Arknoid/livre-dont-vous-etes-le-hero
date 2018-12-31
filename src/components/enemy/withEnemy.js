@@ -10,6 +10,7 @@ import uuidv4 from 'uuid/v4';
  */
 
 import Text from 'components/Text';
+import Link from 'components/Link';
 
 /**
  * Component
@@ -19,7 +20,7 @@ const withEnemy = (CombatComponent, enemy) => (
     constructor(props) {
       super(props);
       this.state = {
-        fightText: '',
+        fightText: ' ',
         health: enemy.health,
         damage: enemy.damage,
         armor: enemy.armor,
@@ -108,9 +109,9 @@ const withEnemy = (CombatComponent, enemy) => (
             {fightText}
           </Text>
           {(player.inCombat === true && isDie === false) && (
-            <button type="button" onClick={() => this.fight()}>
+            <Link action={() => this.fight()}>
               Attaquer
-            </button>
+            </Link>
           )}
         </Fragment>
       );

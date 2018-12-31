@@ -20,7 +20,7 @@ import withPage from './withPage';
 const PageMaraisFuite = withPage(({ player, setCurrentPage, addPlayerEnergy }) => {
   const diceRoll = random.int(1, 6);
   return (
-    <Fragment>
+    <fragment>
       {(diceRoll >= 5) ? (
         <Fragment>
           <Text>
@@ -47,7 +47,7 @@ const PageMaraisFuite = withPage(({ player, setCurrentPage, addPlayerEnergy }) =
           </Link>
         </Fragment>
       )}
-    </Fragment>
+    </fragment>
   );
 }, {
   chapter: 'Le marais maudit',

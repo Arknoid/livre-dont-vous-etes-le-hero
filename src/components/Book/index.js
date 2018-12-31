@@ -111,7 +111,7 @@ class Book extends Component {
     const { player, book } = this.state;
     const PageComponent = this.components[book.currentPage];
     return (
-      <div className="Book">
+      <div id="book">
         <PageComponent
           player={player}
           book={book}
