@@ -8,7 +8,7 @@ import React, { Fragment } from 'react';
 import './page.sass';
 import Text from 'components/Text';
 import Link from 'components/Link';
-
+import PlayerStats from 'components/PlayerStats';
 /**
  * Component
  */
@@ -21,7 +21,9 @@ const withPage = (PageComponent, setting) => (
         <article className="page-chapter">
           <h1 className="page-chapter-title">{setting.chapter}</h1>
           <div className="page-chapter-picture" />
-          <div className="page-chapter-functions" />
+          <PlayerStats
+            {...player}
+          />
         </article>
         <article className="page-content">
           {(player.health > 0 && player.energy > 0) ? (

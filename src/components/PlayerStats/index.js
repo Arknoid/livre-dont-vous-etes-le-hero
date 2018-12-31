@@ -8,21 +8,17 @@ import PropType from 'prop-types';
  * Local import
  */
 import './playerStats.sass';
-
+import PlayerCard from 'components/PlayerCard';
 /**
  * Component
  */
-const PlayerStats = ({ health, energy, ration }) => (
+const PlayerStats = ({ ...props }) => (
   <article>
-    <div>
-      Santé: {health}
-    </div>
-    <div>
-      Energie: {energy}
-    </div>
-    <div>
-      Rations: {ration}
-    </div>
+    <PlayerCard
+      name="Arknoid"
+      picture="face.jpg"
+      {...props}
+    />
   </article>
 );
 
@@ -30,6 +26,8 @@ PlayerStats.propTypes = {
   health: PropType.number.isRequired,
   energy: PropType.number.isRequired,
   ration: PropType.number.isRequired,
+  combatSkill: PropType.number.isRequired,
+  armor: PropType.number.isRequired,
 };
 /*
  * Export

@@ -11,7 +11,7 @@ import './book.sass';
 import PageMarais from 'components/pages/PageMarais';
 import PageMaraisCombat from 'components/pages/PageMaraisCombat';
 import PageMaraisFuite from 'components/pages/PageMaraisFuite';
-import PlayerStats from 'components/PlayerStats';
+
 
 /**
  * Code
@@ -27,7 +27,7 @@ class Book extends Component {
         ration: 10,
         inCombat: false,
         damage: 6, // rollDice
-        armor: 3, // rollDice 0 to value
+        armor: 3, // rollDice
         combatSkill: 6,
       },
       book: {
@@ -121,9 +121,6 @@ class Book extends Component {
           consumeRation={this.consumeRation}
           setInCombat={this.setInCombat}
           resetGame={this.resetGame}
-        />
-        <PlayerStats
-          {...player}
         />
       </div>
     );
