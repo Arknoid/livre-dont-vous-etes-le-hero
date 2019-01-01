@@ -8,7 +8,7 @@ import React, { Fragment } from 'react';
  */
 
 import Text from 'components/Text';
-import Link from 'components/Link';
+import Action from 'components/Action';
 import withPage from './withPage';
 
 /**
@@ -18,15 +18,22 @@ import withPage from './withPage';
 const PageMarais = withPage(({ player, setCurrentPage, addPlayerEnergy }) => (
   <Fragment>
     <Text>
-      C'est au détour d'un marais fumant que vous rencontrez cet affreux monstre.
+      C'est au détour d'un marais fumant que vous apercevez une étrange silhouette géante suivi d'un
+      terrible grognement.
     </Text>
-    <Link to="maraisFuite" setPage={setCurrentPage} action={addPlayerEnergy} actionValue={-10}>
-      Vous partez en courant sans vous retournez !
-    </Link>
+    <Action
+      linkTo="maraisFuite"
+      linkFunction={setCurrentPage}
+      actionFunction={addPlayerEnergy}
+      actionParam={-10}
+      text="Vous partez en courant sans vous retournez ! (-10 en énergie)"
+    />
     {player.health > 50 && (
-      <Link to="maraisCombat" setPage={setCurrentPage}>
-        Vous êtes assez vaillant pour lui faire la peau !
-      </Link>
+      <Action
+        linkTo="maraisCombat"
+        linkFunction={setCurrentPage}
+        text="Vous êtes assez vaillant pour lui faire la peau !"
+      />
     )}
   </Fragment>
 ), {

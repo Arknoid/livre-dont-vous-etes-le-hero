@@ -3,53 +3,83 @@
  */
 
 import React, { Fragment } from 'react';
-import random from 'random';
 
 /**
  * Local import
  */
 
 import Text from 'components/Text';
-import Link from 'components/Link';
+import Action from 'components/Action';
 import withPage from './withPage';
 
 /**
  * Component
  */
 
-const PageMaraisFuite = withPage(({ player, setCurrentPage, addPlayerEnergy }) => {
-  const diceRoll = random.int(1, 6);
-  return (
-    <fragment>
-      {(diceRoll >= 5) ? (
-        <Fragment>
-          <Text>
-            Vous vous entravez à une racine et vous roulez brutalement à terre.
-            En vous relevant doucement vous découvrez cette horrible visage baveux s'approchant de
-            vous pour vous dévorer.
-          </Text>
-          <Link to="maraisCombat" setPage={setCurrentPage}>
-            Affronter le monstre.
-          </Link>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <Text>
-            Vous fuyez de toutes vos forces.
-          </Text>
-          {player.energy > 10 && (
-            <Link to="maraisFuite" setPage={setCurrentPage} action={addPlayerEnergy} actionValue={-10}>
-              Continuer de courir sans relâche (-10 en énergie)
-            </Link>
-          )}
-          <Link to="maraisCombat" setPage={setCurrentPage}>
-            Se retourner et combattre le monstre affamé.
-          </Link>
-        </Fragment>
-      )}
-    </fragment>
-  );
-}, {
+const PageMaraisFuite = withPage((
+  {
+    player,
+    setCurrentPage,
+    addPlayerEnergy,
+    rollNewDice,
+    currentRollDice,
+  },
+) => (
+  <Fragment>
+    <Text>
+      Vous courrez comme un dégénérer dans le marécage boueux sans regarder ou vous mettez
+      les pieds...
+    </Text>
+    {currentRollDice === undefined && (
+      <Action
+        actionFunction={rollNewDice}
+        actionParam={6}
+        text=" Tester votre chance (1D6)"
+      />
+    )}
+    {currentRollDice >= 4 && (
+      <Fragment>
+        <Text>
+          Vous obtenez {currentRollDice} au jet de dés
+        </Text>
+        <Text>
+          Vous vous entravez à une racine et vous roulez brutalement à terre.
+          En vous relevant doucement vous découvrez cette horrible visage baveux s'approchant de
+          vous pour vous dévorer.
+        </Text>
+        <Action
+          linkTo="maraisCombat"
+          linkFunction={setCurrentPage}
+          text="Affronter le monstre."
+        />
+      </Fragment>
+    )}
+    {currentRollDice < 4 && (
+      <Fragment>
+        <Text>
+          Vous obtenez {currentRollDice} au jet de dés
+        </Text>
+        <Text>
+          Vous fuyez de toutes vos forces.
+        </Text>
+        {player.energy > 10 && (
+          <Action
+            linkTo="maraisFuite"
+            linkFunction={setCurrentPage}
+            actionFunction={addPlayerEnergy}
+            actionParam={-10}
+            text="Continuer de courir sans relâche (-10 en énergie)"
+          />
+        )}
+        <Action
+          linkTo="maraisCombat"
+          linkFunction={setCurrentPage}
+          text="Se retourner et combattre le monstre affamé."
+        />
+      </Fragment>
+    )}
+  </Fragment>
+), {
   chapter: 'Le marais maudit',
 });
 

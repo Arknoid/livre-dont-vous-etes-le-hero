@@ -8,7 +8,7 @@ import React, { Fragment } from 'react';
  */
 import Text from 'components/Text';
 import EnemyOgre from 'components/enemy/EnemyOgre';
-import Link from 'components/Link';
+import Action from 'components/Action';
 import withPage from './withPage';
 /**
  * Component
@@ -24,7 +24,7 @@ const PageMaraisCombat = withPage((
 ) => (
   <Fragment>
     <Text>
-      Vous êtes face à un ogre géant vêtu d'un simple pagne complètement troué.
+      Vous êtes face à un ogre géant vêtu d'un simple pagne troué.
       La vision de sa bouche remplie de dents pourries
       dégoulinant de bave ainsi que son odeur nauséabonde vous retourne le ventre, mais vous devez
       l'affronter afin de ne pas finir en civet ...
@@ -35,9 +35,11 @@ const PageMaraisCombat = withPage((
       addPlayerHealth={addPlayerHealth}
     />
     {player.inCombat === false && (
-      <Link to="marais" setPage={setCurrentPage}>
-        Suite
-      </Link>
+      <Action
+        linkTo="marais"
+        linkFunction={setCurrentPage}
+        text="Continuer"
+      />
     )}
   </Fragment>
 ), {

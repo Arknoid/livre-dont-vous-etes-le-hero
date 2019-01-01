@@ -10,7 +10,7 @@ import uuidv4 from 'uuid/v4';
  */
 
 import Text from 'components/Text';
-import Link from 'components/Link';
+import Action from 'components/Action';
 
 /**
  * Component
@@ -72,13 +72,14 @@ const withEnemy = (CombatComponent, enemy) => (
       // Enemy win :
       if (diceRollEnemy + combatSkill > diceRollPlayer + player.combatSkill) {
         // calcul of the damage by diceRoll damage - diceRoll player armor
-        let damageToEnemy = random.int(1, damage) - random.int(0, player.armor);
+        let damageToEnemy = random.int(1, damage) - random.int(1, player.armor);
         damageToEnemy = (damageToEnemy < 0) ? 0 : damageToEnemy;
         // add damage to enemy by state
         this.setState(state => ({
           health: state.health - damageToEnemy,
         }));
-        this.setFightText(`Vous touchez ${enemy.name} et lui infliger ${damageToEnemy} points de dégâts`);
+        this.setFightText(`Vous touchez ${enemy.name} et lui infliger 
+        ${(damageToEnemy === 0) ? 'aucun' : damageToEnemy} point(s) de dégâts`);
       }
       // Player win :
       else if (diceRollEnemy + combatSkill < diceRollPlayer + player.combatSkill) {
@@ -87,7 +88,8 @@ const withEnemy = (CombatComponent, enemy) => (
         damageToPlayer = (damageToPlayer < 0) ? 0 : damageToPlayer;
         // add damage to player by a prop func
         addPlayerHealth(-damageToPlayer);
-        this.setFightText(`${enemy.name} vous touche et inflige ${damageToPlayer} points de dégâts`);
+        this.setFightText(`${enemy.name} vous touche et inflige 
+        ${(damageToPlayer === 0) ? 'aucun' : damageToPlayer} points de dégâts`);
       }
       // Same result:
       else {
@@ -109,9 +111,10 @@ const withEnemy = (CombatComponent, enemy) => (
             {fightText}
           </Text>
           {(player.inCombat === true && isDie === false) && (
-            <Link action={() => this.fight()}>
-              Attaquer
-            </Link>
+            <Action
+              actionFunction={() => this.fight()}
+              text="Attaquer"
+            />
           )}
         </Fragment>
       );
