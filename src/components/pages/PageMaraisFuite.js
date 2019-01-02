@@ -10,6 +10,7 @@ import React, { Fragment } from 'react';
 
 import Text from 'components/Text';
 import Action from 'components/Action';
+import { maraisMauditData } from 'data/chapter';
 import withPage from './withPage';
 
 /**
@@ -79,9 +80,7 @@ const PageMaraisFuite = withPage((
       </Fragment>
     )}
   </Fragment>
-), {
-  chapter: 'Le marais maudit',
-});
+), maraisMauditData);
 
 /**
  * Export

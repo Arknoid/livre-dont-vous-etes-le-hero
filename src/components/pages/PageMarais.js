@@ -9,6 +9,7 @@ import React, { Fragment } from 'react';
 
 import Text from 'components/Text';
 import Action from 'components/Action';
+import { maraisMauditData } from 'data/chapter';
 import withPage from './withPage';
 
 /**
@@ -34,9 +35,7 @@ const PageMarais = withPage(({ setCurrentPage, addPlayerEnergy }) => (
       text="Vous vous sentez assez vaillant pour lui faire la peau !"
     />
   </Fragment>
-), {
-  chapter: 'Le marais maudit',
-});
+), maraisMauditData);
 
 
 /**

@@ -11,8 +11,8 @@ import './book.sass';
 import PageMarais from 'components/pages/PageMarais';
 import PageMaraisCombat from 'components/pages/PageMaraisCombat';
 import PageMaraisFuite from 'components/pages/PageMaraisFuite';
-
-
+// For initial states
+import playerData from 'data/player';
 /**
  * Code
  */
@@ -23,20 +23,22 @@ class Book extends Component {
     this.state = {
       player: {
         isDie: false,
-        name: 'Arknoid',
-        picture: 'face.jpg',
-        health: 20,
-        energy: 50,
-        ration: 5,
         inCombat: false,
-        damage: 6, // rollDice
-        armor: 3, // rollDice
-        combatSkill: 6,
+        name: playerData.name,
+        picture: playerData.picture,
+        health: playerData.health,
+        energy: playerData.energy,
+        ration: playerData.ration,
+        damage: playerData.damage, // rollDice
+        armor: playerData.armor, // rollDice
+        combatSkill: playerData.combatSkill,
       },
       book: {
         currentPage: 'marais',
       },
     };
+
+    // Used for dynamic generate PageComponent
     this.components = {
       marais: PageMarais,
       maraisCombat: PageMaraisCombat,
@@ -64,11 +66,12 @@ class Book extends Component {
   };
 
   setCurrentPage = (page) => {
-    this.setState({
+    this.setState(state => ({
+      ...state,
       book: {
         currentPage: page,
       },
-    });
+    }));
   };
 
   addPlayerEnergy = (number) => {

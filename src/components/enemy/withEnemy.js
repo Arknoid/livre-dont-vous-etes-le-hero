@@ -43,7 +43,7 @@ const withEnemy = (CombatComponent, enemy) => (
       // Test if enemy is dead
       if (health <= 0 && player.inCombat === true) {
         this.setFightText(`Vous avez tuer ${enemy.name}`);
-        // stop the fight for pop new link in the Page Components
+        // stop the fight for pop new actions in the Page Components
         setInCombat(false);
         this.setEnemyDie();
       }

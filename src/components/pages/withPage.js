@@ -18,7 +18,7 @@ import CharacterCard from 'components/CharacterCard';
  * Component
  */
 
-const withPage = (PageComponent, setting) => (
+const withPage = (PageComponent, chapterData) => (
 
   class Page extends Component {
     constructor(props) {
@@ -28,6 +28,13 @@ const withPage = (PageComponent, setting) => (
       };
       this.setRollDice = this.setRollDice.bind(this);
       this.rollNewDice = this.rollNewDice.bind(this);
+    }
+
+    componentDidUpdate() {
+      const { player, setPlayerDie } = this.props;
+      if (player.health <= 0 && player.isDie === false) {
+        setPlayerDie();
+      }
     }
 
     setRollDice(number) {
@@ -54,16 +61,12 @@ const withPage = (PageComponent, setting) => (
         player,
         consumeRation,
         resetGame,
-        setPlayerDie,
       } = this.props;
-      if (player.health <= 0 && player.isDie === false) {
-        setPlayerDie();
-      }
       return (
         <section className="page">
           <article className="page-chapter">
-            <h1 className="page-chapter-title">{setting.chapter}</h1>
-            <div className="page-chapter-picture" />
+            <h1 className="page-chapter-title">{chapterData.name}</h1>
+            <div className="page-chapter-picture" style={{ backgroundImage: `url(./assets/backgrounds/${chapterData.picture})` }} />
             <CharacterCard
               {...player}
               size="small"

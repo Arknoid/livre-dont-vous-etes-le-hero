@@ -34,7 +34,9 @@ const CharacterCard = (
       <div className="characterCard-health"><span>{health}</span></div>
       <div className="characterCard-damage"><span>1D{damage}</span></div>
       <div className="characterCard-combat"><span>{combatSkill}</span></div>
-      <div className="characterCard-armor"><span>1D{armor}</span></div>
+      {armor !== undefined && (
+        <div className="characterCard-armor"><span>1D{armor}</span></div>
+      )}
       {energy !== undefined && (
         <div className="characterCard-energy"><span>{energy}</span></div>
       )}
@@ -47,15 +49,16 @@ CharacterCard.propTypes = {
   name: PropType.string.isRequired,
   health: PropType.number.isRequired,
   damage: PropType.number.isRequired,
-  armor: PropType.number.isRequired,
+  armor: PropType.number,
   size: PropType.oneOf(['small', 'normal', 'big']),
   energy: PropType.number,
   combatSkill: PropType.number.isRequired,
 };
 
 CharacterCard.defaultProps = {
-  energy: undefined,
   size: 'normal',
+  energy: undefined,
+  armor: undefined,
 };
 
 /*

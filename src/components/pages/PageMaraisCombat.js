@@ -9,6 +9,7 @@ import React, { Fragment } from 'react';
 import Text from 'components/Text';
 import EnemyOgre from 'components/enemy/EnemyOgre';
 import Action from 'components/Action';
+import { maraisMauditData } from 'data/chapter';
 import withPage from './withPage';
 /**
  * Component
@@ -42,9 +43,7 @@ const PageMaraisCombat = withPage((
       />
     )}
   </Fragment>
-), {
-  chapter: 'Le marais maudit',
-});
+), maraisMauditData);
 
 /**
  * Export

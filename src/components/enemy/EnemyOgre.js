@@ -8,7 +8,11 @@ import React from 'react';
  */
 
 import CharacterCard from 'components/CharacterCard';
+// initial state and props
+import { ogreAffame } from 'data/enemy';
+
 import withEnemy from './withEnemy';
+
 
 /**
  * Component
@@ -20,14 +24,7 @@ const EnemyOgre = withEnemy(props => (
     {...props}
   />
 ),
-{
-  picture: 'ogre.jpeg',
-  name: "l'ogre affamé",
-  health: 20,
-  damage: 8,
-  armor: 2,
-  combatSkill: 7,
-});
+ogreAffame);
 
 
 /**
