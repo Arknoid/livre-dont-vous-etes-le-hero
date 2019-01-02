@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 
-import EnemyCard from 'components/EnemyCard';
+import CharacterCard from 'components/CharacterCard';
 import withEnemy from './withEnemy';
 
 /**
@@ -15,12 +15,13 @@ import withEnemy from './withEnemy';
  */
 
 const EnemyOgre = withEnemy(props => (
-  <EnemyCard
+  <CharacterCard
     picture="ogre.jpeg"
     {...props}
   />
 ),
 {
+  picture: 'ogre.jpeg',
   name: "l'ogre affamé",
   health: 20,
   damage: 8,

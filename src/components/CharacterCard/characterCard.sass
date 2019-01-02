@@ -1,8 +1,5 @@
-
-.enemyCard
+.characterCard
   font-family: 'Charm', cursive
-  width: 15rem
-  height: 15rem
   position: relative
   border: 8px solid black
   box-shadow: 0 0 15px black
@@ -16,6 +13,7 @@
     cursor: pointer
   &-name,
   &-health,
+  &-energy,
   &-damage,
   &-combat,
   &-armor
@@ -79,4 +77,23 @@
     span
       padding-bottom: 0.5rem
       margin: auto
+  &-energy
+    right: -1.5rem
+    top: -1.4rem
+    width: 2.5rem
+    height: 2.5rem
+    font-size: 1.6rem
+    background: url("/assets/interface/energy.png")
+    background-size: 100% 100%
+    span
+      margin: auto
 
+  &--size-small
+    width: 10rem
+    height: 10rem
+  &--size-normal
+    width: 15rem
+    height: 15rem
+  &--size-big
+    width: 20rem
+    height: 20rem

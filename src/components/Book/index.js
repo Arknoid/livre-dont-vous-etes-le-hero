@@ -22,9 +22,12 @@ class Book extends Component {
     super(props);
     this.state = {
       player: {
-        health: 100,
-        energy: 100,
-        ration: 10,
+        isDie: false,
+        name: 'Arknoid',
+        picture: 'face.jpg',
+        health: 20,
+        energy: 50,
+        ration: 5,
         inCombat: false,
         damage: 6, // rollDice
         armor: 3, // rollDice
@@ -50,6 +53,16 @@ class Book extends Component {
     }));
   };
 
+  setPlayerDie= () => {
+    this.setState(state => ({
+      player: {
+        ...state.player,
+        picture: 'skull.jpg',
+        isDie: true,
+      },
+    }));
+  };
+
   setCurrentPage = (page) => {
     this.setState({
       book: {
@@ -71,7 +84,9 @@ class Book extends Component {
     this.setState(state => ({
       player: {
         ...state.player,
-        health: 100,
+        health: 20,
+        picture: 'face.jpg',
+        isDie: false,
       },
       book: {
         currentPage: 'marais',
@@ -79,7 +94,7 @@ class Book extends Component {
     }));
   };
 
-  setPlayerRation = (number) => {
+  addPlayerRation = (number) => {
     this.setState(state => ({
       player: {
         ...state.player,
@@ -98,7 +113,7 @@ class Book extends Component {
   };
 
   consumeRation = () => {
-    this.setPlayerRation(-1);
+    this.addPlayerRation(-1);
     this.setState(state => ({
       player: {
         ...state.player,
@@ -121,6 +136,7 @@ class Book extends Component {
           consumeRation={this.consumeRation}
           setInCombat={this.setInCombat}
           resetGame={this.resetGame}
+          setPlayerDie={this.setPlayerDie}
         />
       </div>
     );

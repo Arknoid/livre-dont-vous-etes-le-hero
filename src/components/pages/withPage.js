@@ -12,7 +12,7 @@ import random from 'random';
 import './page.sass';
 import Text from 'components/Text';
 import Action from 'components/Action';
-import PlayerStats from 'components/PlayerStats';
+import CharacterCard from 'components/CharacterCard';
 
 /**
  * Component
@@ -50,14 +50,23 @@ const withPage = (PageComponent, setting) => (
     }
 
     render() {
-      const { player, consumeRation, resetGame } = this.props;
+      const {
+        player,
+        consumeRation,
+        resetGame,
+        setPlayerDie,
+      } = this.props;
+      if (player.health <= 0 && player.isDie === false) {
+        setPlayerDie();
+      }
       return (
         <section className="page">
           <article className="page-chapter">
             <h1 className="page-chapter-title">{setting.chapter}</h1>
             <div className="page-chapter-picture" />
-            <PlayerStats
+            <CharacterCard
               {...player}
+              size="small"
             />
           </article>
           <article className="page-content">

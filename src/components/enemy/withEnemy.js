@@ -21,6 +21,7 @@ const withEnemy = (CombatComponent, enemy) => (
       super(props);
       this.state = {
         fightText: ' ',
+        picture: enemy.picture,
         health: enemy.health,
         damage: enemy.damage,
         armor: enemy.armor,
@@ -49,15 +50,18 @@ const withEnemy = (CombatComponent, enemy) => (
     }
 
     setEnemyDie() {
-      this.setState({
+      this.setState(state => ({
+        ...state,
         isDie: true,
-      });
+        picture: 'skull.jpg',
+      }));
     }
 
     setFightText(message) {
-      this.setState({
+      this.setState(state => ({
+        ...state,
         fightText: message,
-      });
+      }));
     }
 
     fight() {
