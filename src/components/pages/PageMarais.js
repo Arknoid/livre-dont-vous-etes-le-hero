@@ -32,7 +32,7 @@ const PageMarais = withPage(({ player, setCurrentPage, addPlayerEnergy }) => (
       <Action
         linkTo="maraisCombat"
         linkFunction={setCurrentPage}
-        text="Vous êtes assez vaillant pour lui faire la peau !"
+        text="Vous vous sentez assez vaillant pour lui faire la peau !"
       />
     )}
   </Fragment>

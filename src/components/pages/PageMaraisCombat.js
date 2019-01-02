@@ -25,9 +25,9 @@ const PageMaraisCombat = withPage((
   <Fragment>
     <Text>
       Vous êtes face à un ogre géant vêtu d'un simple pagne troué.
-      La vision de sa bouche remplie de dents pourries
-      dégoulinant de bave ainsi que son odeur nauséabonde vous retourne le ventre, mais vous devez
-      l'affronter afin de ne pas finir en civet ...
+      La vision de cette bouche remplie de dents pourries
+      dégoulinant de bave ainsi qu'une odeur nauséabonde vous retourne sérieusement le ventre,
+      mais vous devez l'affronter afin de ne pas finir en civet ...
     </Text>
     <EnemyOgre
       setInCombat={setInCombat}

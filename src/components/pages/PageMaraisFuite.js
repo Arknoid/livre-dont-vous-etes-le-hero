@@ -34,17 +34,17 @@ const PageMaraisFuite = withPage((
       <Action
         actionFunction={rollNewDice}
         actionParam={6}
-        text=" Tester votre chance (1D6)"
+        text=" Tester votre chance : score de 3 et plus sur 1d6"
       />
     )}
-    {currentRollDice >= 4 && (
+    {currentRollDice <= 3 && (
       <Fragment>
         <Text>
           Vous obtenez {currentRollDice} au jet de dés
         </Text>
         <Text>
-          Vous vous entravez à une racine et vous roulez brutalement à terre.
-          En vous relevant doucement vous découvrez cette horrible visage baveux s'approchant de
+          Vous vous entravez à une racine et vous roulez brutalement dans la boue.
+          En vous relevant doucement vous découvrez un horrible visage baveux s'approchant de
           vous pour vous dévorer.
         </Text>
         <Action
@@ -54,7 +54,7 @@ const PageMaraisFuite = withPage((
         />
       </Fragment>
     )}
-    {currentRollDice < 4 && (
+    {currentRollDice > 3 && (
       <Fragment>
         <Text>
           Vous obtenez {currentRollDice} au jet de dés
@@ -62,7 +62,7 @@ const PageMaraisFuite = withPage((
         <Text>
           Vous fuyez de toutes vos forces.
         </Text>
-        {player.energy > 10 && (
+        {player.energy >= 10 && (
           <Action
             linkTo="maraisFuite"
             linkFunction={setCurrentPage}
@@ -74,7 +74,7 @@ const PageMaraisFuite = withPage((
         <Action
           linkTo="maraisCombat"
           linkFunction={setCurrentPage}
-          text="Se retourner et combattre le monstre affamé."
+          text="Se retourner et combattre ce monstre affamé."
         />
       </Fragment>
     )}
