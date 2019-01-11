@@ -1,18 +1,18 @@
 /**
  * Import
  */
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 /**
  * Local import
  */
 
-import './book.sass';
-import PageMarais from 'components/pages/PageMarais';
-import PageMaraisCombat from 'components/pages/PageMaraisCombat';
-import PageMaraisFuite from 'components/pages/PageMaraisFuite';
+import "./book.sass";
+import PageMarais from "components/pages/PageMarais";
+import PageMaraisCombat from "components/pages/PageMaraisCombat";
+import PageMaraisFuite from "components/pages/PageMaraisFuite";
 // For initial states
-import playerData from 'data/player';
+import playerData from "data/player";
 /**
  * Code
  */
@@ -31,55 +31,55 @@ class Book extends Component {
         ration: playerData.ration,
         damage: playerData.damage, // rollDice
         armor: playerData.armor, // rollDice
-        combatSkill: playerData.combatSkill,
+        combatSkill: playerData.combatSkill
       },
       book: {
-        currentPage: 'marais',
-      },
+        currentPage: "marais"
+      }
     };
 
     // Used for dynamic generate PageComponent
     this.components = {
       marais: PageMarais,
       maraisCombat: PageMaraisCombat,
-      maraisFuite: PageMaraisFuite,
+      maraisFuite: PageMaraisFuite
     };
   }
 
-  setInCombat = (bool) => {
+  setInCombat = bool => {
     this.setState(state => ({
       player: {
         ...state.player,
-        inCombat: bool,
-      },
+        inCombat: bool
+      }
     }));
   };
 
-  setPlayerDie= () => {
+  setPlayerDie = () => {
     this.setState(state => ({
       player: {
         ...state.player,
-        picture: 'skull.jpg',
-        isDie: true,
-      },
+        picture: "skull.jpg",
+        isDie: true
+      }
     }));
   };
 
-  setCurrentPage = (page) => {
+  setCurrentPage = page => {
     this.setState(state => ({
       ...state,
       book: {
-        currentPage: page,
-      },
+        currentPage: page
+      }
     }));
   };
 
-  addPlayerEnergy = (number) => {
+  addPlayerEnergy = number => {
     this.setState(state => ({
       player: {
         ...state.player,
-        energy: state.player.energy + number,
-      },
+        energy: state.player.energy + number
+      }
     }));
   };
 
@@ -88,30 +88,30 @@ class Book extends Component {
       player: {
         ...state.player,
         health: 20,
-        picture: 'face.jpg',
-        isDie: false,
+        picture: "face.jpg",
+        isDie: false
       },
       book: {
-        currentPage: 'marais',
-      },
+        currentPage: "marais"
+      }
     }));
   };
 
-  addPlayerRation = (number) => {
+  addPlayerRation = number => {
     this.setState(state => ({
       player: {
         ...state.player,
-        ration: state.player.ration + number,
-      },
+        ration: state.player.ration + number
+      }
     }));
   };
 
-  addPlayerHealth = (number) => {
+  addPlayerHealth = number => {
     this.setState(state => ({
       player: {
         ...state.player,
-        health: state.player.health + number,
-      },
+        health: state.player.health + number
+      }
     }));
   };
 
@@ -120,8 +120,8 @@ class Book extends Component {
     this.setState(state => ({
       player: {
         ...state.player,
-        energy: 100,
-      },
+        energy: 100
+      }
     }));
   };
 

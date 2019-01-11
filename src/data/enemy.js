@@ -1,11 +1,11 @@
 
 export const ogreAffame = {
-  picture: 'ogre.jpeg',
+  picture: "ogre.jpeg",
   name: "l'ogre affamé",
   health: 20,
   damage: 8,
   armor: 2,
-  combatSkill: 7,
+  combatSkill: 7
 };
 
 export const ogreBois = {
