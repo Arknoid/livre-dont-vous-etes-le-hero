@@ -85,7 +85,7 @@ const withPage = (PageComponent, chapterData) => (
                 {player.health <= 0 && (
                   <Fragment>
                     <Text>
-                      Vous succombez à vos blessures dans d'horribles souffrance...
+                      Vous succombez à vos blessures dans d&apos;horribles souffrance...
                     </Text>
                     <Action
                       actionFunction={resetGame}

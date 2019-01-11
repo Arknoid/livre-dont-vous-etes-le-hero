@@ -24,8 +24,7 @@ const PageMaraisFuite = withPage((
     addPlayerEnergy,
     rollNewDice,
     currentRollDice,
-  },
-) => (
+  }) => (
   <Fragment>
     <Text>
       Vous courrez comme un dégénérer dans le marécage boueux sans regarder ou vous mettez
@@ -45,7 +44,7 @@ const PageMaraisFuite = withPage((
         </Text>
         <Text>
           Vous vous entravez à une racine et vous roulez brutalement dans la boue.
-          En vous relevant doucement vous découvrez un horrible visage baveux s'approchant de
+          En vous relevant doucement vous découvrez un horrible visage baveux s&apos;approchant de
           vous pour vous dévorer.
         </Text>
         <Action
