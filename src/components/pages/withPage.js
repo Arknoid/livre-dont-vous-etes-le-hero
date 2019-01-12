@@ -6,6 +6,7 @@ import React, { Component, Fragment } from "react";
 import random from "random";
 import PropType from "prop-types";
 import styled from "styled-components";
+
 /**
  * Local import
  */
@@ -25,7 +26,7 @@ const PageWrapper = styled.section`
 `;
 
 const Chapter = styled.article`
-  @import url('https://fonts.googleapis.com/css?family=UnifrakturCook:700|UnifrakturMaguntia');
+  @import url("https://fonts.googleapis.com/css?family=UnifrakturMaguntia");
   font-family: "UnifrakturMaguntia", cursive;
   width: 50%;
   box-shadow: 0 0 15px burlywood;
@@ -41,7 +42,7 @@ const Title = styled.h1`
   font-size: 3rem;
   text-shadow: 0 0 25px peru;
   &:first-letter {
-    font-family: "UnifrakturCook", cursive;
+    font-weight: bold;
     font-size: 4rem;
   }
 `;
@@ -119,9 +120,7 @@ const withPage = (PageComponent, chapterData) =>
         <PageWrapper>
           <Chapter>
             <Title>{chapterData.name}</Title>
-            <Picture
-              background={chapterData.picture}
-            />
+            <Picture background={chapterData.picture} />
             <CharacterCard {...player} size="small" />
           </Chapter>
           <Content>
