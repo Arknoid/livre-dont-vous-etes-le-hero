@@ -4,6 +4,7 @@
 import React, { Component, Fragment } from "react";
 import random from "random";
 import uuidv4 from "uuid/v4";
+import PropType from "prop-types";
 
 /**
  * Local import
@@ -30,9 +31,14 @@ const withEnemy = (CombatComponent, enemy) =>
       };
     }
 
+    static propTypes = {
+      setInCombat : PropType.func.isRequired,
+      player : PropType.object.isRequired,
+      addPlayerHealth : PropType.func.isRequired,
+    };
+
     componentDidMount() {
       const { setInCombat } = this.props;
-
       setInCombat(true);
     }
 
@@ -40,7 +46,7 @@ const withEnemy = (CombatComponent, enemy) =>
       const { health } = this.state;
       const { setInCombat, player } = this.props;
 
-      // Test if enemy is dead
+      // Test if a enemy is dead
       if (health <= 0 && player.inCombat === true) {
         this.setFightText(`Vous avez tuer ${enemy.name}`);
         // stop the fight for pop new actions in the Page Components

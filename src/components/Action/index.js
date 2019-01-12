@@ -3,11 +3,8 @@
  */
 import React from "react";
 import PropType from "prop-types";
-/**
- * Local import
- */
+import styled from "styled-components";
 
-import "./action.sass";
 /**
  * Component
  */
@@ -20,6 +17,19 @@ const Action = ({
   actionParam2,
   text
 }) => {
+  const Button = styled.button`
+    border: none;
+    font-size: 1.2rem;
+    background-color: burlywood;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 3px;
+    :hover {
+      background-color: peru;
+      box-shadow: 0 0 10px peru;
+    }
+  `;
+
   const handleClick = () => {
     if (actionFunction !== undefined) {
       actionFunction(actionParam, actionParam1, actionParam2);
@@ -29,9 +39,9 @@ const Action = ({
     }
   };
   return (
-    <button className="action" type="button" onClick={handleClick}>
+    <Button type="button" onClick={handleClick}>
       {text}
-    </button>
+    </Button>
   );
 };
 

@@ -4,15 +4,66 @@
 
 import React, { Component, Fragment } from "react";
 import random from "random";
-
+import PropType from "prop-types";
+import styled from "styled-components";
 /**
  * Local import
  */
 
-import "./page.sass";
 import Text from "components/Text";
 import Action from "components/Action";
 import CharacterCard from "components/CharacterCard";
+
+/**
+ * Styles
+ */
+
+const PageWrapper = styled.section`
+  display: flex;
+  height: 100%;
+  width: 100%;
+`;
+
+const Chapter = styled.article`
+  @import url('https://fonts.googleapis.com/css?family=UnifrakturCook:700|UnifrakturMaguntia');
+  font-family: "UnifrakturMaguntia", cursive;
+  width: 50%;
+  box-shadow: 0 0 15px burlywood;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 3rem;
+  text-shadow: 0 0 25px peru;
+  &:first-letter {
+    font-family: "UnifrakturCook", cursive;
+    font-size: 4rem;
+  }
+`;
+
+const Picture = styled.div`
+  margin: 0 5rem;
+  height: 50%;
+  box-shadow: 0 0 65px peru;
+  border: 4px solid black;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/assets/backgrounds/${props => props.background}");
+`;
+
+const Content = styled.article`
+  padding: 2rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px burlywood;
+`;
 
 /**
  * Component
@@ -28,6 +79,13 @@ const withPage = (PageComponent, chapterData) =>
       this.setRollDice = this.setRollDice.bind(this);
       this.rollNewDice = this.rollNewDice.bind(this);
     }
+
+    static propTypes = {
+      player: PropType.object.isRequired,
+      setPlayerDie: PropType.func.isRequired,
+      consumeRation: PropType.func.isRequired,
+      resetGame: PropType.func.isRequired
+    };
 
     componentDidUpdate() {
       const { player, setPlayerDie } = this.props;
@@ -58,20 +116,15 @@ const withPage = (PageComponent, chapterData) =>
     render() {
       const { player, consumeRation, resetGame } = this.props;
       return (
-        <section className="page">
-          <article className="page-chapter">
-            <h1 className="page-chapter-title">{chapterData.name}</h1>
-            <div
-              className="page-chapter-picture"
-              style={{
-                backgroundImage: `url(./assets/backgrounds/${
-                  chapterData.picture
-                })`
-              }}
+        <PageWrapper>
+          <Chapter>
+            <Title>{chapterData.name}</Title>
+            <Picture
+              background={chapterData.picture}
             />
             <CharacterCard {...player} size="small" />
-          </article>
-          <article className="page-content">
+          </Chapter>
+          <Content>
             {player.health > 0 && player.energy > 0 ? (
               <PageComponent
                 {...this.props}
@@ -104,8 +157,8 @@ const withPage = (PageComponent, chapterData) =>
                 )}
               </Fragment>
             )}
-          </article>
-        </section>
+          </Content>
+        </PageWrapper>
       );
     }
   };

@@ -2,17 +2,33 @@
  * Import
  */
 import React, { Component } from "react";
-
+import styled from "styled-components";
 /**
  * Local import
  */
 
-import "./book.sass";
 import PageMarais from "components/pages/PageMarais";
 import PageMaraisCombat from "components/pages/PageMaraisCombat";
 import PageMaraisFuite from "components/pages/PageMaraisFuite";
 // For initial states
 import playerData from "data/player";
+
+/**
+ * Style
+ */
+
+const BookWrapper = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Lora');
+  font-family: 'Lora', serif;
+  width: 80vw;
+  height: 90vh;
+  margin: 3rem auto;
+  border: 8px solid sienna;
+  box-shadow: 0 0 35px black;
+  border-radius: 3px;
+  background-color: bisque;
+`;
+
 /**
  * Code
  */
@@ -129,7 +145,7 @@ class Book extends Component {
     const { player, book } = this.state;
     const PageComponent = this.components[book.currentPage];
     return (
-      <div id="book">
+      <BookWrapper>
         <PageComponent
           player={player}
           book={book}
@@ -141,7 +157,7 @@ class Book extends Component {
           resetGame={this.resetGame}
           setPlayerDie={this.setPlayerDie}
         />
-      </div>
+      </BookWrapper>
     );
   }
 }
