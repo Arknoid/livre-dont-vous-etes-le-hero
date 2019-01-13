@@ -38,7 +38,6 @@ const PageMarais = withPage(
   ),
   maraisMauditData
 );
-
 /**
  * Export
  */

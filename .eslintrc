@@ -20,7 +20,9 @@
       "jsx": true
     }
   },
-
+  "rules": {
+    "react/display-name": "off"
+  },
   "settings": {
     "import/resolver": {
       "node": {
