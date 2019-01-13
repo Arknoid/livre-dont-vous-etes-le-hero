@@ -59,7 +59,7 @@ class Book extends Component {
   resetGame = () => {
     const {resetPlayer} = this.context;
     resetPlayer();
-    this.setState(state => ({
+    this.setState(() => ({
       currentPage: "marais"
     }));
   };

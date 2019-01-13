@@ -6,9 +6,13 @@ import Book from "components/Book";
 import Text from "components/Text";
 import Action from "components/Action";
 import CharacterCard from "components/CharacterCard";
+import PlayerProvider from "store/PlayerProvider";
 
 storiesOf("Hero book", module)
-  .add("Book", () => <Book />)
+  .add("Book", () =>
+    <PlayerProvider>
+      <Book />
+    </PlayerProvider>)
   .add("Action", () => <Action text={"Testing"} />)
   .add("Text", () => <Text> Testing text </Text>)
   .add("CharacterCard", () => (
