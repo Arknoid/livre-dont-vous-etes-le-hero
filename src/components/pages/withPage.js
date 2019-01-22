@@ -4,7 +4,7 @@
 
 import React, { Component, Fragment } from "react";
 import random from "random";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 /**
@@ -82,10 +82,10 @@ const withPage = (PageComponent, chapterData) =>
     }
 
     static propTypes = {
-      player: PropType.object.isRequired,
-      setPlayerDie: PropType.func.isRequired,
-      consumeRation: PropType.func.isRequired,
-      resetGame: PropType.func.isRequired
+      player: PropTypes.object.isRequired,
+      setPlayerDie: PropTypes.func.isRequired,
+      consumeRation: PropTypes.func.isRequired,
+      resetGame: PropTypes.func.isRequired
     };
 
     componentDidUpdate() {
