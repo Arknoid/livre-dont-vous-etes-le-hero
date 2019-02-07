@@ -1,7 +1,7 @@
 /**
  * Import
  */
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 
 /**
@@ -14,72 +14,68 @@ import PageMaraisCombat from "components/pages/PageMaraisCombat";
 import PageMaraisFuite from "components/pages/PageMaraisFuite";
 import { PlayerContext } from 'store/PlayerProvider';
 
-/**
- * Style
- */
+const Book = () => {
 
-const BookWrapper = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Lora');
-  font-family: 'Lora', serif;
-  width: 80vw;
-  height: 90vh;
-  margin: 3rem auto;
-  border: 8px solid sienna;
-  box-shadow: 0 0 35px black;
-  border-radius: 3px;
-  background-color: bisque;
-`;
+  /*
+  * Styles
+  */
+  const BookWrapper = styled.div`
+    @import url('https://fonts.googleapis.com/css?family=Lora');
+    font-family: 'Lora', serif;
+    width: 80vw;
+    height: 90vh;
+    margin: 3rem auto;
+    border: 8px solid sienna;
+    box-shadow: 0 0 35px black;
+    border-radius: 3px;
+    background-color: bisque;
+  `;
 
-/**
- * Code
- */
+  /*
+  * State
+  */
+  const [currentPage, setCurrentPage] = useState("marais");
 
-class Book extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPage: "marais"
-    };
+  /*
+  * Context
+  */
+  const context = useContext(PlayerContext);
 
-    // Used for dynamic generate PageComponent
-    this.components = {
-      marais: PageMarais,
-      maraisCombat: PageMaraisCombat,
-      maraisFuite: PageMaraisFuite
-    };
-  }
-
-  setCurrentPage = page => {
-    this.setState(state => ({
-      ...state,
-      currentPage: page
-    }));
+  /*
+  * Const
+  */
+  const components = {
+    marais: PageMarais,
+    maraisCombat: PageMaraisCombat,
+    maraisFuite: PageMaraisFuite
   };
+  const PageComponent = components[currentPage];
+  const {resetPlayer} = context;
+  console.log(context);
 
-  resetGame = () => {
-    const {resetPlayer} = this.context;
+  /*
+  * Functions
+  */
+  const resetGame = () => {
     resetPlayer();
-    this.setState(() => ({
-      currentPage: "marais"
-    }));
+    setCurrentPage("marais")
   };
 
-  render() {
-    const { currentPage } = this.state;
-    const PageComponent = this.components[currentPage];
-    return (
-      <BookWrapper>
-        <PageComponent
-          {...this.context}
-          setCurrentPage={this.setCurrentPage}
-          resetGame={this.resetGame}
-        />
-      </BookWrapper>
-    );
-  }
+  /*
+  * Component
+  */
+  return (
+    <BookWrapper>
+      <PageComponent
+        setCurrentPage={setCurrentPage}
+        resetGame={resetGame}
+      />
+    </BookWrapper>
+  )
 
-}
-Book.contextType = PlayerContext;
+};
+
+
 /**
  * Export
  */

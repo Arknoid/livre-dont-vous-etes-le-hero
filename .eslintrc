@@ -3,7 +3,7 @@
     "plugin:react/recommended",
     "prettier",
     "prettier/react",
-    "prettier/standard"
+    "prettier/standard",
   ],
 
   "env": {
@@ -11,6 +11,11 @@
     "browser": true,
     "jest": true
   },
+
+  "plugins": [
+    // ...
+    "react-hooks"
+  ],
 
   "parser": "babel-eslint",
 
@@ -21,7 +26,8 @@
     }
   },
   "rules": {
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error"
   },
   "settings": {
     "import/resolver": {
