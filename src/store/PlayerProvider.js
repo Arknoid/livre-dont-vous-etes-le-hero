@@ -1,8 +1,8 @@
 import React, { createContext, Component } from "react";
 import PropTypes from "prop-types";
-import playerData from "data/player";
+import playerData from "../data/player";
 
-export const PlayerContext = createContext({
+const PlayerContext = createContext({
   player: {},
   setInCombat: () => {},
   setPlayerDie: () => {},
@@ -87,7 +87,7 @@ class PlayerProvider extends Component {
     );
   }
 }
-
+export {PlayerContext};
 export const withPlayer = Component => props => (
   <PlayerContext.Consumer>
     {store => <Component {...props} {...store} />}

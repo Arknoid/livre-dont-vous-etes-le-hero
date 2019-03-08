@@ -4,16 +4,15 @@
 
 import React, { useState, useContext, Fragment } from "react";
 import random from "random";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 /**
  * Local import
  */
-import { PlayerContext } from 'store/PlayerProvider';
-import Text from "components/Text";
-import Action from "components/Action";
-import CharacterCard from "components/CharacterCard";
+import { PlayerContext } from '../../store/PlayerProvider';
+import Text from "../../components/Text";
+import Action from "../../components/Action";
+import CharacterCard from "../../components/CharacterCard";
 
 /**
  * Styles

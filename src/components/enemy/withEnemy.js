@@ -10,8 +10,8 @@ import PropType from "prop-types";
  * Local import
  */
 
-import Text from "components/Text";
-import Action from "components/Action";
+import Text from "../../components/Text";
+import Action from "../../components/Action";
 
 /**
  * Component
@@ -38,8 +38,8 @@ const withEnemy = (CombatComponent, enemy) =>
     };
 
     componentDidMount() {
-      const { setInCombat } = this.props;
-      setInCombat(true);
+      const { setInCombat,player } = this.props;
+      if(!player.inCombat) setInCombat(true);
     }
 
     componentDidUpdate() {

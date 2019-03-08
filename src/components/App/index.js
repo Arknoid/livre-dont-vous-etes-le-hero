@@ -6,8 +6,8 @@ import React, { Component } from "react";
 /**
  * Local import
  */
-import Book from "components/Book";
-import PlayerProvider from "store/PlayerProvider";
+import Book from "../../components/Book";
+import PlayerProvider from "../../store/PlayerProvider";
 
 /**
  * Component

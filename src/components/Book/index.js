@@ -8,11 +8,10 @@ import styled from "styled-components";
  * Local import
  */
 
-import { playerContext } from "store/PlayerProvider";
-import PageMarais from "components/pages/PageMarais";
-import PageMaraisCombat from "components/pages/PageMaraisCombat";
-import PageMaraisFuite from "components/pages/PageMaraisFuite";
-import { PlayerContext } from 'store/PlayerProvider';
+import PageMarais from "../../components/pages/PageMarais";
+import PageMaraisCombat from "../../components/pages/PageMaraisCombat";
+import PageMaraisFuite from "../../components/pages/PageMaraisFuite";
+import {PlayerContext} from "../../store/PlayerProvider";
 
 const Book = () => {
 
@@ -39,7 +38,7 @@ const Book = () => {
   /*
   * Context
   */
-  const context = useContext(PlayerContext);
+  const player = useContext(PlayerContext);
 
   /*
   * Const
@@ -50,9 +49,7 @@ const Book = () => {
     maraisFuite: PageMaraisFuite
   };
   const PageComponent = components[currentPage];
-  const {resetPlayer} = context;
-  console.log(context);
-
+  const {resetPlayer} = player;
   /*
   * Functions
   */
@@ -67,6 +64,7 @@ const Book = () => {
   return (
     <BookWrapper>
       <PageComponent
+        {...player}
         setCurrentPage={setCurrentPage}
         resetGame={resetGame}
       />

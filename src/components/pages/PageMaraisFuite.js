@@ -8,9 +8,9 @@ import React, { Fragment } from "react";
  * Local import
  */
 
-import Text from "components/Text";
-import Action from "components/Action";
-import { maraisMauditData } from "data/chapter";
+import Text from "../../components/Text";
+import Action from "../../components/Action";
+import { maraisMauditData } from "../../data/chapter";
 import withPage from "./withPage";
 
 /**
